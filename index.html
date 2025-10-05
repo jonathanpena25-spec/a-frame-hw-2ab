@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A-Frame Primitives – [your name]</title>
+<script src=
+"https://aframe.io/releases/1.7.0/aframe.min.js">
+</script>
+</head>
+<body>
+<a-scene>
+
+>		
+</a-plane>
+      <a-plane color="#228B22" width="30" height="20" rotation="-90 0 0" position="0 0 0"></a-plane>
+      <!-- Center Line -->
+      <a-box color="#fff" depth="0.2" height="20" width="0.2" position="0 0.11 0"></a-box>
+      <!-- Center Circle -->
+      <a-cylinder color="#fff" radius="2" height="0.1" rotation="-90 0 0" position="0 0.11 0"></a-cylinder>
+      <!-- Field Boundaries -->
+      <a-box color="#fff" width="30" height="0.2" depth="0.2" position="0 0.11 10"></a-box>
+      <a-box color="#fff" width="30" height="0.2" depth="0.2" position="0 0.11 -10"></a-box>
+      <a-box color="#fff" width="0.2" height="0.2" depth="20" position="15 0.11 0"></a-box>
+      <a-box color="#fff" width="0.2" height="0.2" depth="20" position="-15 0.11 0"></a-box>
+      <!-- Goals -->
+      <a-box color="#fff" width="4" height="2" depth="0.2" position="0 1 10.1"></a-box>
+      <a-box color="#fff" width="4" height="2" depth="0.2" position="0 1 -10.1"></a-box>
+      <!-- Camera -->
+      <a-entity camera position="0 15 25" rotation="-45 0 0"></a-entity>
+      <!-- Soccer Balls with Stripes -->
+      <a-sphere color="#fff" radius="0.5" position="0 0.5 0"></a-sphere>
+      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="0 0.5 0" rotation="0 0 0"></a-torus>
+      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="0 0.5 0" rotation="90 0 0"></a-torus>
+
+      <a-sphere color="#fff" radius="0.5" position="-5 0.5 3"></a-sphere>
+      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="-5 0.5 3" rotation="0 0 0"></a-torus>
+      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="-5 0.5 3" rotation="90 0 0"></a-torus>
+
+      <a-sphere color="#fff" radius="0.5" position="5 0.5 -3"></a-sphere>
+      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="5 0.5 -3" rotation="0 0 0"></a-torus>
+      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="5 0.5 -3" rotation="90 0 0"></a-torus>
+      <a-sky
+color="lightskyblue"
+>
+</a-sky>
+</a-scene>
+</body>
+</html>
