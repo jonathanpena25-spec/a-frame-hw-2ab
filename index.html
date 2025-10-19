@@ -10,116 +10,223 @@
 <a-scene>
       <a-assets>
 
-
  <img
-id="Wood Floor basecolor.png"
-src="assets\Grass_005_BaseColor.jpg"
+id="GrassFloorbasecolor"
+src="assets\Grass_004_COLOR.jpg"
 >
 <img
-id="Wood Floor ambient.png"
-src="assets\Grass_005_AmbientOcclusion.jpg"
+id="GrassFloorambient"
+src="assets\Grass_004_OCC.jpg"
 >
 <img
-id="Wood normal.png"
-src="assets\Grass_005_Normal.jpg"
+id="Grassnormal"
+src="assets\Grass_004_NORM.jpg"
 >
 <img
-id="Tiles68basecolor.png"
+id="Grass_004_Color"
 src="assets\Stylized_Leaves_001_basecolor.jpg"
 >
 <img
-id="Tiles68ambient.png"
-src="assets\Stylized_Leaves_001_ambientOcclu
-sion.jpg"
+id="Grass_004_AmbientOcclusion"
+src="assets\Stylized_Leaves_001_ambientOcclusion.jpg"
 >
 <img
-id="Tiles68normal.png"
+id="Grass_005_Normal"
 src="assets\Stylized_Leaves_001_normal.jpg"
 >
 <img
-id="Tiles67basecolor.png"
-src="assets\Stylized_Leaves_002_basecolor.jpg"
+id="Stone_Path_004_basecolor"
+src="assets\Stone_Path_004_baseColor.jpg"
 >
 <img
-id="Tiles67ambient.png"
-src="assets\Stylized_Leaves_002_ambientOcclu
-sion.jpg"
+id="Stone_Path_004_ambientocclusion"
+src="assets\Stone_Path_004_ambientOcclusion.jpg"
 >
 <img
-id="Tiles67normal.png"
-src="assets\Stylized_Leaves_002_normal.jpg"
+id="Stone_Path_004_normal"
+src="assets\Stone_Path_004_normal.jpg"
 >
-<a-entity
-gltf-model="#Camping Stuff"
-position="-1.0 0 -10"
-rotation="0 45 0"
-scale="0.1 0.1 0.1"
->
-</a-entity>
-<a-entity
-gltf-model="#Car.glb"
-position="1.0 0 -10"
-scale="0.225 0.225 0.225"
->
-</a-entity>
-<a-entity
-gltf-model="#Cubone.glb"
-position="-1.0 0 -10"
-rotation="0 45 0"
-scale="0.1 0.1 0.1"
->
-</a-entity>
-<a-entity
-gltf-model="#Rocks.glb"
-position="-1.0 0 -10"
-rotation="0 45 0"
-scale="0.1 0.1 0.1"
->
-</a-entity>
-<a-entity
-gltf-model="#Dining Set.glb"
-position="-1.0 0 -10"
-rotation="0 45 0"
-scale="0.1 0.1 0.1"
->
-</a-entity>
-<\a-assets> 
+<img
+id="sky"
+src="assets\sky.jpg">
+
+      <!-- 3D model assets -->
+      <a-asset-item id="camping-stuff" src="assets/Camping Stuff"></a-asset-item>
+      <a-asset-item id="rocks" src="assets/Rocks.glb"></a-asset-item>
+      <a-asset-item id="trophy" src="assets/Trophy.glb"></a-asset-item>
+      <a-asset-item id="car" src="assets/Car.glb"></a-asset-item>
+      <a-asset-item id="stadium-seats" src="assets/Stadium Seats.glb"></a-asset-item>
 
 
+</a-assets>
 
->		
-</a-plane>
-      <a-plane color="#228B22" width="30" height="20" rotation="-90 0 0" position="0 0 0"></a-plane>
+
+      <!-- Place models around the field -->
+      <a-entity gltf-model="#camping-stuff" position="-12 0 12" rotation="0 45 0" scale="0.12 0.12 0.12"></a-entity>
+      <a-entity gltf-model="#rocks" position="-8 0 6" rotation="0 20 0" scale="0.12 0.12 0.12"></a-entity>
+      <a-entity gltf-model="#trophy" position="-4.65 0.5 0" rotation="0 180 0" scale="0.35 0.35 0.35"></a-entity>
+      <a-entity gltf-model="#car" position="18 0 12" rotation="0 -30 0" scale="0.22 0.22 0.22"></a-entity>
+                  <!-- Bleachers moved to left & right sides facing the field (wrapped to flip model) -->
+                              <!-- Bleachers facing each other: parents rotated inward, child flipped as-needed -->
+                              <a-entity position="-16 0 0" rotation="0 90 0">
+                                    <a-entity gltf-model="#stadium-seats" rotation="0 180 0" scale="0.25 0.25 0.25"></a-entity>
+                              </a-entity>
+      <a-entity position="16 0 0" rotation="0 -90 0">
+                                    <a-entity gltf-model="#stadium-seats" rotation="0 180 0" scale="0.25 0.25 0.25"></a-entity>
+                              </a-entity>
+      <!-- Rocks placed ON the field -->
+      <a-entity gltf-model="#rocks" position="-2 0 3" rotation="0 30 0" scale="0.12 0.12 0.12"></a-entity>
+      <a-entity gltf-model="#rocks" position="4 0 1" rotation="0 -20 0" scale="0.12 0.12 0.12"></a-entity>
+      <a-entity gltf-model="#rocks" position="-5 0 -1" rotation="0 10 0" scale="0.12 0.12 0.12"></a-entity>
+<a-sky
+src="#sky"
+></a-sky>
+      <a-plane 
+            material=
+                  "src: #GrassFloorbasecolor;
+                  repeat: 30 20;
+                  ambientOcclusionMap: #GrassFloorambient;
+                  ambientOcclusionTextureRepeat: 30 20;
+                  normalMap: #Grassnormal;
+                  normalTextureRepeat: 30 20"
+            width="30" 
+            height="20" 
+            rotation="-90 0 0" 
+            position="0 0 0">
+      </a-plane>
       <!-- Center Line -->
-      <a-box color="#fff" depth="0.2" height="20" width="0.2" position="0 0.11 0"></a-box>
+      <a-box color="#fff" 
+      depth="0.2" 
+      height="20"
+       width="0.2" 
+       position="0 0.11 0"></a-box>
       <!-- Center Circle -->
-      <a-cylinder color="#fff" radius="2" height="0.1" rotation="-90 0 0" position="0 0.11 0"></a-cylinder>
+      <a-cylinder color="#fff"
+       radius="2"
+        height="0.1"
+         rotation="-90 0 0" 
+         position="0 0.11 0"></a-cylinder>
       <!-- Field Boundaries -->
-      <a-box color="#fff" width="30" height="0.2" depth="0.2" position="0 0.11 10"></a-box>
-      <a-box color="#fff" width="30" height="0.2" depth="0.2" position="0 0.11 -10"></a-box>
-      <a-box color="#fff" width="0.2" height="0.2" depth="20" position="15 0.11 0"></a-box>
-      <a-box color="#fff" width="0.2" height="0.2" depth="20" position="-15 0.11 0"></a-box>
+      <a-box 
+      material=
+                  "src: #Stone_Path_004_basecolor;
+                  repeat: 30 0.2;
+                  ambientOcclusionMap: #Stone_Path_004_ambientocclusion;
+                  ambientOcclusionTextureRepeat: 30 0.2;
+                  normalMap: #Stone_Path_004_normal;
+                  normalTextureRepeat: 30 0.2"
+       width="30" 
+       height="0.2"
+        depth="0.2" 
+        position="0 0.11 10"></a-box>
+      <a-box 
+      material=
+                  "src: #Stone_Path_004_basecolor;
+                  repeat: 30 0.2;
+                  ambientOcclusionMap: #Stone_Path_004_ambientocclusion;
+                  ambientOcclusionTextureRepeat: 30 0.2;
+                  normalMap: #Stone_Path_004_normal;
+                  normalTextureRepeat: 30 0.2"
+       width="30" 
+       height="0.2"
+        depth="0.2" 
+        position="0 0.11 -10"></a-box>
+      <a-box 
+       material=
+                  "src: #Stone_Path_004_basecolor;
+                  repeat: 30 0.2;
+                
+                  ambientOcclusionMap: #Stone_Path_004_ambientocclusion;
+                  ambientOcclusionTextureRepeat: 30 0.2;
+                  normalMap: #Stone_Path_004_normal;
+                  normalTextureRepeat: 30 0.2"
+       width="0.2" 
+       height="0.2" 
+       depth="20" 
+       position="15 0.11 0"></a-box>
+      <a-box 
+       material=
+                  "src: #Stone_Path_004_basecolor;
+                  repeat: 30 0.2;
+                  ambientOcclusionMap: #Stone_Path_004_ambientocclusion;
+                  ambientOcclusionTextureRepeat: 30 0.2;
+                  normalMap: #Stone_Path_004_normal;
+                  normalTextureRepeat: 30 0.2"
+       width="0.2"
+        height="0.2"
+         depth="20" 
+         position="-15 0.11 0"></a-box>
       <!-- Goals -->
-      <a-box color="#fff" width="4" height="2" depth="0.2" position="0 1 10.1"></a-box>
-      <a-box color="#fff" width="4" height="2" depth="0.2" position="0 1 -10.1"></a-box>
-      <!-- Camera -->
-      <a-entity camera position="0 15 25" rotation="-45 0 0"></a-entity>
+      <a-box 
+      material=
+                  "src: #Stone_Path_004_basecolor;
+                  repeat: 4 2;
+                  ambientOcclusionMap: #Stone_Path_004_ambientocclusion;
+                  ambientOcclusionTextureRepeat: 4 2;
+                  normalMap: #Stone_Path_004_normal;
+                  normalTextureRepeat: 4 2"
+       width="4" 
+       height="2"
+        depth="0.2" 
+        position="0 1 10.1"></a-box>
+      <a-box 
+      material=
+                  "src: #Stone_Path_004_basecolor;
+                  repeat: 30 20;
+                  ambientOcclusionMap: #Stone_Path_004_ambientocclusion;
+                  ambientOcclusionTextureRepeat: 30 0.2;
+                  normalMap: #Stone_Path_004_normal;
+                  normalTextureRepeat: 30 0.2"
+      width="4" 
+      height="2"
+       depth="0.2" 
+       position="0 1 -10.1"></a-box>
+      
+     
       <!-- Soccer Balls with Stripes -->
-      <a-sphere color="#fff" radius="0.5" position="0 0.5 0"></a-sphere>
-      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="0 0.5 0" rotation="0 0 0"></a-torus>
-      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="0 0.5 0" rotation="90 0 0"></a-torus>
+                  <a-sphere color="#fff"
+                   radius="0.5" 
+                   position="1 0.5 0"></a-sphere>
+                  <a-torus color="#222" 
+                  radius="0.5"
+                   radius-tubular="0.05"
+                        position="1 0.5 0" 
+                        rotation="0 0 0"></a-torus>
+                  <a-torus color="#222"
+                   radius="0.5" 
+                   radius-tubular="0.05" 
+                   position="1 0.5 0" 
+                   rotation="90 0 0"></a-torus>
 
-      <a-sphere color="#fff" radius="0.5" position="-5 0.5 3"></a-sphere>
-      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="-5 0.5 3" rotation="0 0 0"></a-torus>
-      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="-5 0.5 3" rotation="90 0 0"></a-torus>
+      <a-sphere color="#fff"
+       radius="0.5" position="-5 0.5 3"></a-sphere>
+      <a-torus color="#222" 
+      radius="0.5" 
+      radius-tubular="0.05" 
+      position="-5 0.5 3" 
+      rotation="0 0 0"></a-torus>
+      <a-torus color="#222" 
+      radius="0.5" 
+      radius-tubular="0.05" 
+      position="-5 0.5 3" 
+      rotation="90 0 0"></a-torus>
 
-      <a-sphere color="#fff" radius="0.5" position="5 0.5 -3"></a-sphere>
-      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="5 0.5 -3" rotation="0 0 0"></a-torus>
-      <a-torus color="#222" radius="0.5" radius-tubular="0.05" position="5 0.5 -3" rotation="90 0 0"></a-torus>
-      <a-sky
-color="lightskyblue"
->
-</a-sky>
+      <a-sphere color="#fff"
+       radius="0.5" 
+       position="5 0.5 -3"></a-sphere>
+      <a-torus color="#222" 
+      radius="0.5"
+       radius-tubular="0.05" 
+       position="5 0.5 -3" 
+       rotation="0 0 0"></a-torus>
+      <a-torus color="#222"
+       radius="0.5" 
+       radius-tubular="0.05" 
+       position="5 0.5 -3" 
+       rotation="90 0 0"></a-torus>
+
+   
+
 </a-scene>
 </body>
 </html>
